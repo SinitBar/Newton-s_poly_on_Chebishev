@@ -13,9 +13,9 @@ M_12 = 2048; % max на [0, 10] для 12 производной
 
 % выведем теоретическую погрешность пользователю:
 if (n == 5)
-    r_n_max = (M_5 / factorial(5)) / 2^(n-1) % максимальная теор. погрешность на отрезке [0 10] для 5 точек
+    r_n_max = (M_5*(right_board - left_board)^n / factorial(5)) / 2^(2*n-1) % максимальная теор. погрешность на отрезке [0 10] для 5 точек
 else % тогда n = 12, для других случаев не предусмотрено
-    r_n_max = (M_12 / factorial(12)) / 2^(n-1) % максимальная тоер. погрешность на отрезке [0 10] для 12 точек
+    r_n_max = (M_12*(right_board - left_board)^n / factorial(12)) / 2^(2*n-1) % максимальная тоер. погрешность на отрезке [0 10] для 12 точек
 end
 real_pogreshnost_newton_with_chebishev_in_point = abs(((cos(point))^2 + point - 1) - polyval(polinom_newton, point)) 
 polifited = polyfit(x, f, n-1)
